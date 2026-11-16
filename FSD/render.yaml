@@ -1,0 +1,153 @@
+services:
+  # Existing MERN CRUD app
+  - type: web
+    name: badri-crud-backend
+    runtime: node
+    plan: free
+    rootDir: mern-crud-app-main/backend
+    buildCommand: npm install
+    startCommand: npm start
+
+  - type: web
+    name: badri-crud-frontend
+    runtime: static
+    rootDir: mern-crud-app-main/frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  # Additional Node apps
+  - type: web
+    name: badri-mongodb-express
+    runtime: node
+    plan: free
+    rootDir: mongodb-express-app-main
+    buildCommand: npm install
+    startCommand: node app.js
+
+  - type: web
+    name: badri-mvc-auth
+    runtime: node
+    plan: free
+    rootDir: mvc-auth-app-main
+    buildCommand: npm install
+    startCommand: node server.js
+
+  - type: web
+    name: badri-mvc-express
+    runtime: node
+    plan: free
+    rootDir: mvc-express-app-main
+    buildCommand: npm install
+    startCommand: node server.js
+
+  - type: web
+    name: badri-products
+    runtime: node
+    plan: free
+    rootDir: products-file-persistence-app-main
+    buildCommand: npm install
+    startCommand: node server.js
+
+  # React examples
+  - type: web
+    name: badri-conditional-rendering
+    runtime: static
+    rootDir: react-conditional-rendering-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: badri-form-events
+    runtime: static
+    rootDir: react-form-events-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: badri-frontend-crud
+    runtime: static
+    rootDir: react-frontend-crud-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: badri-html-render
+    runtime: static
+    rootDir: react-html-render-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: badri-jsx-render
+    runtime: static
+    rootDir: react-jsx-render-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: badri-nested-components
+    runtime: static
+    rootDir: react-nested-components-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: badri-rendering-lists
+    runtime: static
+    rootDir: react-rendering-lists-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: badri-router
+    runtime: static
+    rootDir: react-router-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: badri-state-events
+    runtime: static
+    rootDir: react-state-events-app-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
